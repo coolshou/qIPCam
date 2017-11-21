@@ -32,3 +32,9 @@ HEADERS += \
 
 FORMS += \
         src/mainwindow.ui
+
+DISTFILES += \
+    qIPCam.desktop
+
+RESOURCES += \
+    qipcam.qrc
