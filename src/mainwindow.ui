@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>qIPCam</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../qipcam.qrc">
+    <normaloff>:/image/qIPCam.png</normaloff>:/image/qIPCam.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
@@ -71,8 +75,8 @@
         </widget>
        </item>
        <item>
-        <widget class="QWebEngineView" name="webEngineView">
-         <property name="url">
+        <widget class="QWebEngineView" name="webEngineView" native="true">
+         <property name="url" stdset="0">
           <url>
            <string>about:blank</string>
           </url>
@@ -358,7 +362,7 @@
      <x>0</x>
      <y>0</y>
      <width>895</width>
-     <height>29</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
@@ -380,6 +384,8 @@
    <header location="global">QtWebEngineWidgets/QWebEngineView</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../qipcam.qrc"/>
+ </resources>
  <connections/>
 </ui>

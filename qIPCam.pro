@@ -38,3 +38,4 @@ DISTFILES += \
 
 RESOURCES += \
     qipcam.qrc
+
