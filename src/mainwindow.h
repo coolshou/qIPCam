@@ -26,29 +26,14 @@ public slots:
     void loadfinished(bool c);
     void loadProgress(int val);
     void handleAuthenticationRequired(const QUrl &requestUrl, QAuthenticator *auth);
-    void turnDown(bool b);
-    void turnLeft(bool b);
-    void turnRight(bool b);
-    void turnUp(bool b);
-    void turnLeftUp(bool b);
-    void turnLeftDown(bool b);
-    void turnRightUp(bool b);
-    void turnRightDown(bool b);
-    void goHome(bool b);
-    void doPatrol(bool b);
-    void setLeftRightStep(int val);
-    void setUpDownStep(int val);
 
 private:
     Ui::MainWindow *ui;
     QWebEnginePage *webpage;
-    QWebEnginePage *controlpage;
     QLabel *msgLabel;
     QProgressBar *progressbar;
-    int iLeftRightStep;
-    int iUpDownStep;
     void initStatusBar();
-    void doMoveRequest(int x, int y);
+
 };
 
 #endif // MAINWINDOW_H

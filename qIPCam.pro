@@ -27,17 +27,20 @@ SOURCES += \
         src/main.cpp \
         src/mainwindow.cpp \
     src/vlcplayer.cpp \
-    src/EqualizerDialog.cpp
+    src/EqualizerDialog.cpp \
+    src/controlpanel.cpp
 
 HEADERS += \
         src/mainwindow.h \
     src/vlcplayer.h \
-    src/EqualizerDialog.h
+    src/EqualizerDialog.h \
+    src/controlpanel.h
 
 FORMS += \
         src/mainwindow.ui \
     src/vlcplayer.ui \
-    src/EqualizerDialog.ui
+    src/EqualizerDialog.ui \
+    src/controlpanel.ui
 
 DISTFILES += \
     qIPCam.desktop
