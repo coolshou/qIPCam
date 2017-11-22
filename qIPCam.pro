@@ -25,13 +25,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         src/main.cpp \
-        src/mainwindow.cpp
+        src/mainwindow.cpp \
+    src/vlcplayer.cpp \
+    src/EqualizerDialog.cpp
 
 HEADERS += \
-        src/mainwindow.h
+        src/mainwindow.h \
+    src/vlcplayer.h \
+    src/EqualizerDialog.h
 
 FORMS += \
-        src/mainwindow.ui
+        src/mainwindow.ui \
+    src/vlcplayer.ui \
+    src/EqualizerDialog.ui
 
 DISTFILES += \
     qIPCam.desktop
@@ -39,3 +45,8 @@ DISTFILES += \
 RESOURCES += \
     qipcam.qrc
 
+
+
+# Edit below for custom library location
+LIBS       += -L./vlc-qt/lib -lVLCQtCore -lVLCQtWidgets
+INCLUDEPATH += ./vlc-qt/include
