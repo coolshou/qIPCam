@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>image/qIPCam.png</file>
+        <file>image/add.png</file>
+        <file>image/edit.png</file>
     </qresource>
 </RCC>
