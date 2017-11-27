@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->initStatusBar();
 
+    editCameraDialog = new EditCamera(this);
+
     webpage = new QWebEnginePage;
     webpage->setView(ui->webEngineView);
     connect(webpage, SIGNAL(authenticationRequired(QUrl,QAuthenticator*)), SLOT(handleAuthenticationRequired(QUrl,QAuthenticator*)));
@@ -22,12 +24,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     connect(ui->pbLoad,SIGNAL(clicked(bool)),SLOT(loadweb(bool)));
-
+    //actions
+    connect(ui->actionAddCamera, SIGNAL(triggered(bool)), this, SLOT(showAddCamera(bool)));
 }
 
 MainWindow::~MainWindow()
 {
     webpage->deleteLater();
+    editCameraDialog->deleteLater();
     delete ui;
 }
 
@@ -73,3 +77,8 @@ void MainWindow::handleAuthenticationRequired(const QUrl &requestUrl, QAuthentic
     Q_UNUSED(requestUrl);
 }
 
+void MainWindow::showAddCamera(bool)
+{
+    editCameraDialog->setWindowTitle("Add Camera");
+    editCameraDialog->exec();
+}

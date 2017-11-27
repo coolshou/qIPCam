@@ -7,6 +7,8 @@
 #include <QWebEnginePage>
 #include <QAuthenticator>
 
+#include "editcamera.h"
+
 #include <QDebug>
 
 namespace Ui {
@@ -26,9 +28,11 @@ public slots:
     void loadfinished(bool c);
     void loadProgress(int val);
     void handleAuthenticationRequired(const QUrl &requestUrl, QAuthenticator *auth);
+    void showAddCamera(bool);
 
 private:
     Ui::MainWindow *ui;
+    EditCamera *editCameraDialog;
     QWebEnginePage *webpage;
     QLabel *msgLabel;
     QProgressBar *progressbar;

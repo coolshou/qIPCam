@@ -17,7 +17,7 @@ vlcPlayer::vlcPlayer(QWidget *parent) :
     _media(0),
     _equalizerDialog(new EqualizerDialog(this))
 {
-    ui->setupUi(this);
+    ui->setupUi(parent);
 
     _instance = new VlcInstance(VlcCommon::args(), this);
     _player = new VlcMediaPlayer(_instance);
@@ -30,7 +30,7 @@ vlcPlayer::vlcPlayer(QWidget *parent) :
     ui->seek->setMediaPlayer(_player);
 
     connect(ui->actionOpenLocal, &QAction::triggered, this, &vlcPlayer::openLocal);
-    connect(ui->actionOpenUrl, &QAction::triggered, this, &vlcPlayer::openUrl);
+    connect(ui->actionOpenUrl, SIGNAL(triggered(bool)), this, SLOT(openUrl(bool)));
     connect(ui->actionStop, &QAction::triggered, _player, &VlcMediaPlayer::stop);
 
 }
@@ -57,7 +57,7 @@ void vlcPlayer::openLocal()
     _player->open(_media);
 }
 
-void vlcPlayer::openUrl()
+void vlcPlayer::openUrl(bool chk)
 {
     QString url =
             QInputDialog::getText(this, tr("Open Url"), tr("Enter the URL you want to play"));
@@ -65,7 +65,17 @@ void vlcPlayer::openUrl()
     if (url.isEmpty())
         return;
 
+    this->openUrl(url);
+}
+
+void vlcPlayer::openUrl(QString url)
+{
     _media = new VlcMedia(url, _instance);
 
     _player->open(_media);
+
+}
+void vlcPlayer::showControl(bool b)
+{
+     ui->widgetControl->setVisible(b);
 }

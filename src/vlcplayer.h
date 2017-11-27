@@ -19,10 +19,14 @@ class vlcPlayer : public QWidget
 public:
     explicit vlcPlayer(QWidget *parent = 0);
     ~vlcPlayer();
+    void showControl(bool b);
 
+public slots:
+    void openUrl(QString url);
 private slots:
     void openLocal();
-    void openUrl();
+    void openUrl(bool chk);
+
 
 private:
     Ui::vlcPlayer *ui;
