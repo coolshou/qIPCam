@@ -36,6 +36,15 @@ void MainWindow::initStatusBar()
     //msgLabel->setAlignment(Qt::AlignHCenter);
     ui->statusBar->addWidget(msgLabel);
 
+
+    ui->lwCameras->addItem("test");
+    //TODO: test
+    ViewForm *myView = new ViewForm(this);
+    //myView->show();
+    QListWidgetItem *item = new QListWidgetItem();
+    item->setSizeHint(QSize(320,240));
+    ui->lwCameras->addItem(item);
+    ui->lwCameras->setItemWidget(item, myView);
 }
 
 

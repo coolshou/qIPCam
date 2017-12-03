@@ -13,8 +13,8 @@ ViewForm::ViewForm(QWidget *parent) :
     //ui->widgetWebPage
     ui->webEngineView->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
     //ui->pbLoad->clicked();
-    connect(ui->webEngineView, SIGNAL(loadFinished(bool)), SLOT(loadfinished(bool)));
-    connect(ui->webEngineView, SIGNAL(loadProgress(int)), SLOT(loadProgress(int)));
+    connect(ui->webEngineView, SIGNAL(loadFinished(bool)), SLOT(setFinished(bool)));
+    connect(ui->webEngineView, SIGNAL(loadProgress(int)), SLOT(setProgress(int)));
     connect(ui->pbLoad,SIGNAL(clicked(bool)),SLOT(loadweb(bool)));
 
 }

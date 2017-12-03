@@ -12,5 +12,7 @@
         <file>image/arr-rd.png</file>
         <file>image/arr-ru.png</file>
         <file>image/arr-u.png</file>
+        <file>image/zoomin.png</file>
+        <file>image/zoomout.png</file>
     </qresource>
 </RCC>

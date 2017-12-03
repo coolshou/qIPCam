@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>862</width>
-    <height>498</height>
+    <width>527</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,8 +18,8 @@
     <widget class="QWidget" name="widgetWebPage" native="true">
      <property name="minimumSize">
       <size>
-       <width>640</width>
-       <height>480</height>
+       <width>320</width>
+       <height>240</height>
       </size>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
@@ -76,6 +76,9 @@
           <string>about:blank</string>
          </url>
         </property>
+        <property name="zoomFactor">
+         <double>0.500000000000000</double>
+        </property>
        </widget>
       </item>
      </layout>
@@ -104,12 +107,33 @@
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>155</height>
+          <height>16777215</height>
          </size>
         </property>
         <layout class="QGridLayout" name="gridLayout">
+         <property name="leftMargin">
+          <number>2</number>
+         </property>
+         <property name="topMargin">
+          <number>2</number>
+         </property>
+         <property name="rightMargin">
+          <number>2</number>
+         </property>
+         <property name="bottomMargin">
+          <number>2</number>
+         </property>
+         <property name="spacing">
+          <number>2</number>
+         </property>
          <item row="1" column="2">
           <widget class="QWidget" name="widget_3" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>120</width>
+             <height>80</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>120</width>
@@ -246,8 +270,8 @@
           <widget class="QWidget" name="widget_5" native="true">
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
-             <height>150</height>
+             <width>40</width>
+             <height>16777215</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -296,6 +320,18 @@
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
+              <property name="invertedAppearance">
+               <bool>false</bool>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksAbove</enum>
+              </property>
+              <property name="tickInterval">
+               <number>1</number>
+              </property>
              </widget>
             </item>
            </layout>
@@ -303,6 +339,12 @@
          </item>
          <item row="2" column="1" colspan="2">
           <widget class="QWidget" name="widget_4" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
            <layout class="QVBoxLayout" name="verticalLayout">
             <property name="spacing">
              <number>0</number>
@@ -348,6 +390,61 @@
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="QWidget" name="widget_2" native="true">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="spacing">
+             <number>20</number>
+            </property>
+            <property name="leftMargin">
+             <number>10</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>10</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pbZoomIn">
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../qipcam.qrc">
+                <normaloff>:/image/zoomin.png</normaloff>:/image/zoomin.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pbZoomOut">
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="../qipcam.qrc">
+                <normaloff>:/image/zoomout.png</normaloff>:/image/zoomout.png</iconset>
               </property>
              </widget>
             </item>

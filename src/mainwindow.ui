@@ -18,7 +18,11 @@
     <normaloff>:/image/qIPCam.png</normaloff>:/image/qIPCam.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout" stretch=""/>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QListWidget" name="lwCameras"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -45,6 +49,9 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="movable">
     <bool>true</bool>
    </property>
@@ -101,6 +108,9 @@
    </property>
   </action>
   <action name="actionManagerCamera">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../qipcam.qrc">
      <normaloff>:/image/edit.png</normaloff>:/image/edit.png</iconset>
@@ -113,6 +123,9 @@
    </property>
   </action>
   <action name="actionView">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="../qipcam.qrc">
      <normaloff>:/image/view.png</normaloff>:/image/view.png</iconset>
