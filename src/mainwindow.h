@@ -5,9 +5,10 @@
 #include <QLabel>
 #include <QProgressBar>
 #include <QWebEnginePage>
-#include <QAuthenticator>
+
 
 #include "editcamera.h"
+#include "viewform.h"
 
 #include <QDebug>
 
@@ -24,16 +25,13 @@ public:
     ~MainWindow();
 
 public slots:
-    void loadweb(bool c);
-    void loadfinished(bool c);
-    void loadProgress(int val);
-    void handleAuthenticationRequired(const QUrl &requestUrl, QAuthenticator *auth);
     void showAddCamera(bool);
+    void viewCamera(bool);
 
 private:
     Ui::MainWindow *ui;
     EditCamera *editCameraDialog;
-    QWebEnginePage *webpage;
+    ViewForm *viewForm;
     QLabel *msgLabel;
     QProgressBar *progressbar;
     void initStatusBar();

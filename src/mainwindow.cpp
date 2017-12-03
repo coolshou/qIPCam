@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QWebEngineSettings>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -10,28 +10,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     this->initStatusBar();
 
+    viewForm = new ViewForm();
     editCameraDialog = new EditCamera(this);
 
-    webpage = new QWebEnginePage;
-    webpage->setView(ui->webEngineView);
-    connect(webpage, SIGNAL(authenticationRequired(QUrl,QAuthenticator*)), SLOT(handleAuthenticationRequired(QUrl,QAuthenticator*)));
-
-    //ui->widgetWebPage
-    ui->webEngineView->settings()->setAttribute(QWebEngineSettings::PluginsEnabled, true);
-    //ui->pbLoad->clicked();
-    connect(ui->webEngineView, SIGNAL(loadFinished(bool)), SLOT(loadfinished(bool)));
-    connect(ui->webEngineView, SIGNAL(loadProgress(int)), SLOT(loadProgress(int)));
-
-
-    connect(ui->pbLoad,SIGNAL(clicked(bool)),SLOT(loadweb(bool)));
     //actions
     connect(ui->actionAddCamera, SIGNAL(triggered(bool)), this, SLOT(showAddCamera(bool)));
+    connect(ui->actionView, SIGNAL(triggered(bool)), this, SLOT(viewCamera(bool)));
 }
 
 MainWindow::~MainWindow()
 {
-    webpage->deleteLater();
     editCameraDialog->deleteLater();
+    viewForm->deleteLater();
     delete ui;
 }
 
@@ -48,37 +38,16 @@ void MainWindow::initStatusBar()
 
 }
 
-void MainWindow::loadweb(bool c)
-{
-    QString s = "http://";
-    QString p = "/video/mjpg.cgi";
-    s.append(ui->leURL->text());
-    s.append(p);
-    qDebug() << "loadweb:" << s << endl;
-    webpage->setUrl(QUrl(s));
-    //ui->webEngineView->
-    //ui->webEngineView->setUrl(QUrl(s));
-    //ui->webEngineView->show();
-    //ui->webEngineView->setAttribute();
-    Q_UNUSED(c);
-}
-void MainWindow::loadfinished(bool c)
-{
-    msgLabel->setText("Load finish:" + c);
-}
-void MainWindow::loadProgress(int val)
-{
-    progressbar->setValue(val);
-}
-void MainWindow::handleAuthenticationRequired(const QUrl &requestUrl, QAuthenticator *auth)
-{
-    auth->setUser(ui->leUser->text());
-    auth->setPassword(ui->lePassword->text());
-    Q_UNUSED(requestUrl);
-}
 
-void MainWindow::showAddCamera(bool)
+void MainWindow::showAddCamera(bool chk)
 {
     editCameraDialog->setWindowTitle("Add Camera");
     editCameraDialog->exec();
+    Q_UNUSED(chk);
+}
+
+void MainWindow::viewCamera(bool chk)
+{
+    viewForm->show();
+    Q_UNUSED(chk);
 }
